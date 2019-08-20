@@ -14,9 +14,10 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.mock.mockito.MockBean
 import org.springframework.test.context.junit4.SpringRunner
+import java.lang.Exception
 
-@RunWith(SpringRunner::class)
 @SpringBootTest
+@RunWith(SpringRunner::class)
 class FuncionarioServiceTest {
 
     @MockBean
@@ -35,6 +36,7 @@ class FuncionarioServiceTest {
         BDDMockito.given(funcionarioRepository?.save(Mockito.any(Funcionario::class.java))).willReturn(funcionario())
         BDDMockito.given(funcionarioRepository?.findByCpf(cpf)).willReturn(funcionario())
         BDDMockito.given(funcionarioRepository?.findByEmail(email)).willReturn(funcionario())
+        BDDMockito.given(funcionarioRepository?.findOne(id)).willReturn(funcionario())
     }
 
     @Test
@@ -46,6 +48,18 @@ class FuncionarioServiceTest {
     @Test
     fun testBuscarPorCpf() {
         val funcionario: Funcionario? = this.funcionarioService?.buscarPorCpf(cpf)
+        Assert.assertNotNull(funcionario)
+    }
+
+    @Test
+    fun testBuscarPorEmail() {
+        val funcionario: Funcionario? = this.funcionarioService?.buscarPorEmail(email)
+        Assert.assertNotNull(funcionario)
+    }
+
+    @Test
+    fun testBuscarPorId() {
+        val funcionario: Funcionario? = this.funcionarioService?.buscarPorId(id)
         Assert.assertNotNull(funcionario)
     }
 

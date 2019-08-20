@@ -13,15 +13,16 @@ import org.springframework.boot.test.mock.mockito.MockBean
 import org.springframework.test.context.junit4.SpringRunner
 import java.lang.Exception
 
-@RunWith(SpringRunner::class)
 @SpringBootTest
+@RunWith(SpringRunner::class)
 class EmpresaServiceTest {
 
-    @Autowired
-    val empresaService: EmpresaService? = null
 
     @MockBean
     private val empresaRepository: EmpresaRepository? = null
+
+    @Autowired
+    val empresaService: EmpresaService? = null
 
     private val CNPJ = "51463645000100"
 

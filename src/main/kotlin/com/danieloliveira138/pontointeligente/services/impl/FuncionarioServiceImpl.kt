@@ -13,11 +13,8 @@ class FuncionarioServiceImpl(val funcionarioRepository: FuncionarioRepository) :
 
     override fun buscarPorCpf(cpf: String): Funcionario? = funcionarioRepository.findByCpf(cpf)
 
-    override fun buscarPorEmail(email: Funcionario): Funcionario? {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+    override fun buscarPorEmail(email: String): Funcionario? = funcionarioRepository.findByEmail(email)
 
-    override fun buscarPorId(id: String): Funcionario? {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+    override fun buscarPorId(id: String): Funcionario? = funcionarioRepository.findOne(id)
+
 }

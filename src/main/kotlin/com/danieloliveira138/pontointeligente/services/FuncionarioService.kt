@@ -1,7 +1,6 @@
 package com.danieloliveira138.pontointeligente.services
 
 import com.danieloliveira138.pontointeligente.documents.Funcionario
-import org.springframework.stereotype.Service
 
 interface FuncionarioService {
 
@@ -9,7 +8,7 @@ interface FuncionarioService {
 
     fun buscarPorCpf(cpf: String): Funcionario?
 
-    fun buscarPorEmail(email: Funcionario): Funcionario?
+    fun buscarPorEmail(email: String): Funcionario?
 
     fun buscarPorId(id: String): Funcionario?
 
